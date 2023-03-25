@@ -1,22 +1,5 @@
-const { Client } = require("pg");
-const dotenv = require("dotenv").config();
-const PASSWORD = process.env.PASSWORD;
+const { client } = require("./db");
 const { fetch, parseProductDetails, parseProductLinks } = require("./scrapper");
-
-const client = new Client({
-  user: "postgres",
-  host: "localhost",
-  database: "Flipkart-Scrapper",
-  password: PASSWORD,
-  port: 5000,
-});
-client.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
-module.exports = { client };
-
 async function scrapper(pageNo) {
   const Products = [];
   if (pageNo === 0) {

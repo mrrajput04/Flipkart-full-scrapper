@@ -1,4 +1,4 @@
-const { client } = require("./index");
+const { client } = require("./db");
 
 client.query(`
     CREATE TABLE IF NOT EXISTS Products (
